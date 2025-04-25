@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ÁUREO – Personal Requerido</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/681/681494.png" type="image/png">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #f5f5f5;
+    }
+
+    .menu-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1100;
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-toggle div {
+      height: 4px;
+      background: rgba(255, 215, 0, 0.8);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 200px;
+      background-color: rgba(17, 17, 17, 0.9);
+      padding-top: 60px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      z-index: 1050;
+    }
+
+    .menu a {
+      color: gold;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .menu.show {
+      display: flex;
+    }
+
+    .sticky-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(17, 17, 17, 0.95);
+      padding: 1rem 0;
+      z-index: 1000;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .sticky-header h1 {
+      color: gold;
+      margin: 0 auto;
+      font-size: 1.5rem;
+    }
+
+    header {
+      background-color: #000;
+      padding: 6rem 2rem 2rem;
+      text-align: center;
+      color: gold;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+      text-align: center;
+    }
+
+    h2 {
+      color: gold;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    ul {
+      list-style-position: inside;
+      line-height: 1.7;
+      padding-left: 0;
+      text-align: center;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 0.8rem;
+      background: #222;
+      color: #ccc;
+      font-size: 0.7rem;
+    }
+
+    @media (max-width: 600px) {
+      .menu-toggle {
+        width: 25px;
+        height: 20px;
+      }
+
+      .sticky-header h1 {
+        font-size: 1.2rem;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      header p {
+        font-size: 0.95rem;
+      }
+
+      section {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      p, ul {
+        font-size: 1rem;
+      }
+
+      .menu a {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <nav class="menu" id="menu">
+    <a href="Aureo.html">Inicio</a>
+    <a href="SpecialEdition.html">Ediciones <br> Especiales</a>
+    <a href="About.html">Nosotros</a>
+    <a href="PlazaAureo.html">Plaza</a>
+    <a href="Personal.html">Nuestro Personal</a>
+    <a href="Procesos.html">Nuestros Procesos</a>
+    <a href="PrecioZonal.html">Nuestros precios</a>
+    <a href="ContactMe.html">Contáctanos</a>
+  </nav>
+
+  <div class="sticky-header">
+    <h1>ÁUREO</h1>
+  </div>
+
+  <header>
+    <h1>ÁUREO – Personal Requerido</h1>
+    <p>Talento selecto. Excelencia garantizada.</p>
+  </header>
+
+  <section>
+    <h2>Equipo Administrativo y Creativo</h2>
+    <ul>
+      <li><strong>Gerente General:</strong> Dirección estratégica y toma de decisiones clave.</li>
+      <li><strong>Director de Marca:</strong> Gestión de identidad, imagen y posicionamiento de ÁUREO.</li>
+      <li><strong>Diseñador de Producto:</strong> Desarrollo de las ediciones, empaques y visuales.</li>
+      <li><strong>Especialista en Marketing Premium:</strong> Estrategias exclusivas de promoción y fidelización.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Equipo Operativo y de Producción</h2>
+    <ul>
+      <li><strong>Maestro Licorero:</strong> Responsable de la mezcla, maduración y calidad del licor.</li>
+      <li><strong>Técnico en Embotellado y Control de Calidad:</strong> Garantiza acabados perfectos en cada edición.</li>
+      <li><strong>Operarios de Logística:</strong> Manejo seguro y discreto de inventarios y entregas.</li>
+      <li><strong>Especialistas en Tecnología NFC:</strong> Integración de chips inteligentes en cada botella.</li>
+    </ul>
+  </section>
+
+  <footer>
+    &copy; 2025 ÁUREO. Todos los derechos reservados.<br>Sitio web diseñado por <span style="color: gold">Andrés Escalante</span>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros – ÁUREO</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/681/681494.png" type="image/png">
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #f5f5f5;
+    }
+    .menu-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1100;
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .menu-toggle div {
+      height: 4px;
+      background: rgba(255, 215, 0, 0.8);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 200px;
+      background-color: rgba(17, 17, 17, 0.9);
+      padding-top: 60px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      z-index: 1050;
+    }
+    .menu a {
+      color: gold;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .menu.show {
+      display: flex;
+    }
+    .sticky-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(17, 17, 17, 0.95);
+      padding: 1rem 0;
+      z-index: 1000;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+    .sticky-header h1 {
+      color: gold;
+      margin: 0 auto;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    header {
+      text-align: center;
+      padding: 5rem 2rem 2rem;
+      background-color: #111;
+    }
+    header h1 {
+      color: gold;
+      font-size: 3rem;
+      text-align: center;
+    }
+    header p {
+      text-align: center;
+    }
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    section h2 {
+      font-size: 2rem;
+      color: gold;
+      font-variant: small-caps;
+      margin-top: 2rem;
+      text-align: center;
+    }
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+    footer {
+      text-align: center;
+      padding: 0.8rem;
+      background: #222;
+      color: #ccc;
+      font-size: 0.7rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <nav class="menu" id="menu">
+    <a href="Aureo.html">Inicio</a>
+    <a href="SpecialEdition.html">Ediciones <br> Especiales</a>
+    <a href="About.html">Nosotros</a>
+    <a href="PlazaAureo.html">Plaza</a>
+    <a href="Personal.html">Nuestro Personal</a>
+    <a href="Procesos.html">Nuestros Procesos</a>
+    <a href="PrecioZonal.html">Nuestros precios</a>
+    <a href="ContactMe.html">Contáctanos</a>
+  </nav>
+
+  <div class="sticky-header">
+    <h1>ÁUREO</h1>
+  </div>
+
+  <header>
+    <h1>Nosotros</h1>
+    <p>El alma detrás del licor premium colombiano</p>
+  </header>
+
+  <section>
+    <h2>¿Quiénes Somos?</h2>
+    <p>ÁUREO es el reflejo de la pasión por la excelencia, la elegancia y la cultura colombiana. Somos una marca que combina tradición y tecnología para ofrecer un licor único que represente lo mejor de nuestro país.</p>
+  </section>
+
+  <section>
+    <h2>Misión</h2>
+    <p>Ofrecer una experiencia premium a través de un licor de alta calidad, en un empaque artístico e innovador, promoviendo la identidad colombiana.</p>
+  </section>
+
+  <section>
+    <h2>Visión</h2>
+    <p>Para el año 2030, nos consolidaremos como una marca líder en el mercado colombiano de licores premium, reconocida por su diseño, sofisticación y profundo arraigo cultural.</p>
+  </section>
+
+  <section>
+    <h2>Valores</h2>
+    <p>Excelencia, autenticidad, innovación, compromiso con el arte y respeto por nuestras raíces.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 ÁUREO. Todos los derechos reservados.<br>Sitio web diseñado por <a href="#" style="color:gold; text-decoration: none;">ANDRES ESCALANTE</a>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

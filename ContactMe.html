@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contáctanos – ÁUREO</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #f5f5f5;
+    }
+    .menu-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1100;
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .menu-toggle div {
+      height: 4px;
+      background: rgba(255, 215, 0, 0.8);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 200px;
+      background-color: rgba(17, 17, 17, 0.9);
+      padding-top: 60px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      z-index: 1050;
+    }
+    .menu a {
+      color: gold;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .menu.show {
+      display: flex;
+    }
+    header {
+      padding: 5rem 1rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      color: gold;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    main {
+      max-width: 600px;
+      margin: 0 auto 5rem;
+      padding: 2rem;
+      background: #1c1c1c;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+    main h2 {
+      color: gold;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input[type="text"], input[type="email"], textarea {
+      padding: 0.75rem 1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #2a2a2a;
+      color: #f5f5f5;
+      font-size: 1rem;
+    }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    button {
+      padding: 0.75rem;
+      background-color: gold;
+      color: black;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #d4af37;
+    }
+    footer {
+      text-align: center;
+      padding: 0.8rem;
+      background: #222;
+      color: #ccc;
+      font-size: 0.7rem;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    @media (max-width: 600px) {
+      main {
+        margin: 2rem 1rem 5rem;
+        padding: 1.5rem;
+      }
+      input[type="text"], input[type="email"], textarea {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <nav class="menu" id="menu">
+    <a href="Aureo.html">Inicio</a>
+    <a href="SpecialEdition.html">Ediciones <br> Especiales</a>
+    <a href="About.html">Nosotros</a>
+    <a href="PlazaAureo.html">Plaza</a>
+    <a href="Personal.html">Nuestro Personal</a>
+    <a href="Procesos.html">Nuestros Procesos</a>
+    <a href="PrecioZonal.html">Nuestros precios</a>
+    <a href="ContactMe.html">Contáctanos</a>
+  </nav>
+
+  <header>
+    <h1>Contáctanos</h1>
+    <p>Queremos saber de ti. Escríbenos tus dudas, comentarios o sugerencias.</p>
+  </header>
+
+  <main>
+    <h2>Formulario de contacto</h2>
+    <form>
+      <input type="text" name="nombre" placeholder="Tu nombre">
+      <input type="email" name="correo" placeholder="Tu correo electrónico">
+      <textarea name="mensaje" placeholder="Tu mensaje"></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+  <footer>
+    &copy; 2025 ÁUREO. Todos los derechos reservados.<br>Sitio web diseñado por <a href="#" style="color:gold; text-decoration: none;">ANDRES ESCALANTE</a>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('show');
+    }
+  </script>
+</body>
+</html>

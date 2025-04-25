@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ÁUREO – Licor Premium Colombiano</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/681/681494.png" type="image/png"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #f5f5f5;
+    }
+    .producto h3 {
+      color: gold;
+    }
+
+    header {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .header-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+    .header-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out, transform 10s ease-in-out;
+      transform: scale(1);
+    }
+    .header-bg img.active {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: -1;
+    }
+    .sticky-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(17, 17, 17, 0.95);
+      padding: 1rem 0;
+      z-index: 1000;
+      text-align: center;
+      transition: all 0.4s ease-in-out;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .sticky-header.hidden {
+      opacity: 0;
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
+    .sticky-header h1 {
+      color: gold;
+      margin: 0 auto;
+      font-size: 1.5rem;
+      width: fit-content;
+    }
+    header h1, header p, header .btn {
+      animation: fadeInUp 1.5s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    header h1 {
+      font-size: 4rem;
+      color: gold;
+      margin: 0 auto;
+      width: fit-content;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      max-width: 600px;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      background-color: #111;
+      text-align: center;
+    }
+    h2 {
+      color: gold;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+    p {
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background-color: rgb(255, 215, 0);
+      color: black;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background-color 0.3s;
+      font-size: 1rem;
+    }
+    .btn:hover {
+      background-color: #d4af37;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+    input[type="text"] {
+      padding: 0.5rem;
+      width: 100%;
+      max-width: 400px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+    }
+    #message {
+      margin-top: 1rem;
+      color: gold;
+      font-weight: bold;
+    }
+    .producto {
+      margin-bottom: 2rem;
+    }
+    .producto img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+    .video-container {
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  padding-top: 56.25%; 
+  margin: 0 auto; 
+}
+
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+    .menu-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1100;
+      cursor: pointer;
+      width: 30px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .menu-toggle div {
+      height: 4px;
+      background: rgba(255, 215, 0, 0.8);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 200px;
+      background-color: rgba(17, 17, 17, 0.9);
+      padding-top: 60px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      z-index: 1050;
+    }
+    .menu a {
+      color: gold;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .menu.show {
+      display: flex;
+    }
+    @media (max-width: 768px) {
+      .video-container {
+    width: 100%; 
+    max-width: none;
+    padding-top: 100%;
+  }
+      }
+      header p {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+      .btn {
+        width: auto;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+      footer {
+        font-size: 0.7rem;
+        padding: 0.8rem;
+      }
+      section {
+        padding: 2rem 1rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .sticky-header h1 {
+        font-size: 1.2rem;
+      }
+  </style>
+</head>
+<body>
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <nav class="menu" id="menu">
+    <a href="Aureo.html">Inicio</a>
+    <a href="SpecialEdition.html">Ediciones <br> Especiales</a>
+    <a href="About.html">Nosotros</a>
+    <a href="PlazaAureo.html">Plaza</a>
+    <a href="Personal.html">Nuestro Personal</a>
+    <a href="Procesos.html">Nuestros Procesos</a>
+    <a href="PrecioZonal.html">Nuestros precios</a>
+    <a href="ContactMe.html">Contáctanos</a>
+  </nav>
+
+  <div id="sticky" class="sticky-header hidden">
+    <h1>ÁUREO</h1>
+  </div>
+
+  <header>
+    <div class="header-bg">
+      <img src="fondo1.jpg" class="active" alt="fondo1" sizes="12px">
+      <img src="FONDO2.jpg" alt="fondo2">
+      <img src="FONDO3.jpg" alt="fondo3">
+    </div>
+    <div class="overlay"></div>
+    <h1>ÁUREO</h1>
+    <p>El espíritu de Colombia, embotellado con elegancia.</p>
+    <button class="btn" onclick="scrollToExperience()">Descubre la experiencia</button>
+  </header>
+
+  <div style="text-align: center; margin: 4rem auto;">
+    <span style="font-size: 2rem; color: gold;">✦ ✧ ✦</span>
+  </div>
+
+  <section id="sobre">
+    <h2>Nuestra Esencia</h2>
+    <p>ÁUREO es más que un licor, es un homenaje a la tradición, al sabor y al arte colombiano...</p>
+  </section>
+
+    <section style="padding-top: 0; padding-bottom: 0;">
+      <div class="video-container">
+        <video autoplay muted loop>
+          <source src="video.mp4" type="video/mp4" >
+          Tu navegador no soporta la reproducción de video.
+        </video>
+      </div>
+    </section>
+
+  <section>
+    <h2>El Arte de la Botella</h2>
+    <p>Cada presentación de ÁUREO es una pieza de colección. Diseñada con detalles dorados y curvas sofisticadas, refleja la riqueza cultural de Colombia y la distinción de quien lo consume.</p>
+  </section>
+
+  <section>
+    <h2>Origen del Sabor</h2>
+    <p>Nuestros ingredientes son seleccionados cuidadosamente de regiones como el Eje Cafetero, la Sierra Nevada y el Valle del Cauca, fusionando tradición y modernidad en cada trago.</p>
+  </section>
+
+  <section>
+    <h2>Autenticidad Verificada</h2>
+    <p>Cada botella de ÁUREO contiene un código único que puedes registrar en nuestra plataforma para verificar su autenticidad y desbloquear contenido exclusivo sobre su historia y procedencia.</p>
+  </section>
+
+  <section>
+    <h2>Ediciones Limitadas</h2>
+    <p>Descubre nuestras colecciones anuales con diseños únicos, creados en colaboración con artistas colombianos. Una fusión entre arte y sabor, disponible solo por tiempo limitado.</p>
+  </section>
+
+  <section id="sobre">
+    <h2>Nuestros Productos</h2>
+    <p>Conoce la exclusiva línea de licores ÁUREO, cuidadosamente elaborada para distintos paladares:</p>
+                                                <br><br>    
+    <div class="producto">
+      <h3>ÁUREO Oro</h3>
+      <img src="Aureo-Oro.png" alt="ÁUREO Oro" style="width: 80%; max-width: 500px;">
+      <p>Licor suave con notas de vainilla y miel, ideal para momentos especiales.</p>
+    </div>
+    <div class="producto">
+      <h3>ÁUREO Nobleza</h3>
+      <img src="Aureo Nobleza.png" alt="ÁUREO Nobleza" style="width: 80%; max-width: 500px;">
+      <p>Un licor de cuerpo ámbar, sofisticado y elegante. Su diseño refinado con acentos dorados evoca la grandeza de una experiencia premium única en Colombia.</p>
+    </div>
+    <div class="producto">
+      <h3>ÁUREO Café</h3>
+      <img src="Aureo-Cafe.png" alt="ÁUREO Café" style="width: 80%; max-width: 500px;">
+      <p>Una infusión con alma de café colombiano, pensada para coronar los encuentros más elegantes</p>
+    </div>
+    <div class="producto">
+      <h3>ÁUREO Reserva</h3>
+      <img src="Aureo-Reserva.png" alt="ÁUREO Reserva" style="width: 80%; max-width: 500px;">
+      <p>Envejecido en barriles de roble, con cuerpo robusto y aroma intenso.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Registra tu Experiencia</h2>
+    <p>Introduce el código de tu botella para acceder a contenido exclusivo:</p>
+    <input type="text" id="codigoBotella" placeholder="Código de la botella">
+    <div id="message"></div>
+    <button class="btn" onclick="registrarBotella()">Registrar</button>
+  </section>
+
+  <footer>
+    &copy; 2025 ÁUREO. Todos los derechos reservados. <br>Sitio web diseñado por <a href="#" style="color:gold; text-decoration: none;">ANDRES ESCALANTE</a>
+  </footer>
+
+  <script>
+    function scrollToExperience() {
+      const target = document.getElementById('sobre');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+
+    function registrarBotella() {
+      const codigo = document.getElementById('codigoBotella').value.trim();
+      const message = document.getElementById('message');
+      if (codigo === "") {
+        message.textContent = "Por favor, ingresa un código válido.";
+      } else {
+        message.textContent = `Botella con código "${codigo}" registrada exitosamente.`;
+      }
+    }
+
+    //HEADER
+    window.addEventListener('scroll', () => {
+      const sticky = document.getElementById('sticky');
+      if (window.scrollY > 100) {
+        sticky.classList.remove('hidden');
+      } else {
+        sticky.classList.add('hidden');
+      }
+    });
+
+    //FONDO AUTO
+    const images = document.querySelectorAll('.header-bg img');
+    let current = 0;
+    setInterval(() => {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    }, 6000);
+  </script>
+</body>
+</html>
